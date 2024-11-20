@@ -1,1 +1,22 @@
-<p>pokemon-detalle works!</p>
+<div>
+  <div class="card">
+    <div class="card-header">
+      <h2>{{ pokeDetail.name }}</h2>
+    </div>
+    <div class="card-body">
+      <img
+        [src]="pokeDetail.sprites.front_default"
+        alt="{{ pokeDetail.name }}"
+        class="card-img-top"
+        style="width: 100px; height: 100px"
+      />
+      <p>Altura: {{ pokeDetail.height }}</p>
+      <p>Peso: {{ pokeDetail.weight }}</p>
+      <p>Experiencia base: {{ pokeDetail.id }}</p>
+      <p>Tipos:</p>
+      <div *ngFor="let type of pokeDetail.types">
+        <p>- {{ type.type.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

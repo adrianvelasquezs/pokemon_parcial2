@@ -14,7 +14,7 @@ export class PokemonDetalleComponent implements OnInit {
   @Input() pokeDetail!: PokemonDetailDto;
 
   constructor(
-    route: ActivatedRoute,
+    private route: ActivatedRoute,
     private pokemonService: PokemonService
   ) { }
 
@@ -24,7 +24,8 @@ export class PokemonDetalleComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.pokeDetail === undefined){
-      if(this.pokeId){
+      this.pokeId = this.route.snapshot.paramMap.get('id')!
+      if( this.pokeId ){
         this.getPokemon();
       }
     }
