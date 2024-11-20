@@ -12,6 +12,7 @@ export class PokemonListarComponent implements OnInit {
   pokemons: PokemonDetailDto[] = [];
   selected: Boolean = false;
   selectedPokemon!: PokemonDetailDto;
+  contador!: number[];
 
   constructor(private pokemonService: PokemonService) { }
 
