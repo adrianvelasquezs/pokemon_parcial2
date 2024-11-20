@@ -1,4 +1,10 @@
 <div>
+  <h1>Pokemon Seleccionado</h1>
+  <div *ngIf="selectedPokemon">
+    <app-pokemon-detalle [pokeDetail]="selectedPokemon"></app-pokemon-detalle>
+  </div>
+</div>
+<div>
   <h1>Pokemones</h1>
   <div *ngFor="let pokemon of pokemons">
     <div class="card" style="width: 150px">
@@ -10,6 +16,7 @@
           alt="{{ pokemon.name }}"
           class="card-img-top"
           style="width: 100px; height: 100px"
+          (click)="onSelected(pokemon)"
         />
       </div>
     </div>
