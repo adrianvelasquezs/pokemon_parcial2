@@ -1,4 +1,10 @@
 <div>
+  <h2>Conteo de Tipos de Pokemon</h2>
+  <div *ngFor="let type of typeCount | keyvalue">
+    {{ type.key }}: {{ type.value }}
+  </div>
+</div>
+<div>
   <h2>Pokemon Seleccionado</h2>
   <div *ngIf="selectedPokemon">
     <app-pokemon-detalle [pokeDetail]="selectedPokemon"></app-pokemon-detalle>
@@ -22,4 +28,3 @@
     </div>
   </div>
 </div>
-

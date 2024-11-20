@@ -13,11 +13,25 @@ export class PokemonListarComponent implements OnInit {
   selected: Boolean = false;
   selectedPokemon!: PokemonDetailDto;
   contador!: number[];
+  typeCount: { [key: string]: number } = {};
 
   constructor(private pokemonService: PokemonService) { }
 
   getPokemons(): void {
     this.pokemons = this.pokemonService.getPokemons();
+  }
+
+  countPokemonTypes(): void {
+    this.pokemons.forEach(pokemon => {
+      pokemon.types.forEach(type => {
+        if (this.typeCount[type.type.name]) {
+          this.typeCount[type.type.name]++;
+        } else {
+          this.typeCount[type.type.name] = 1;
+        }
+      });
+    });
+    this.contador = Object.values(this.typeCount);
   }
 
   onSelected(pokemon: PokemonDetailDto): void {
@@ -27,5 +41,6 @@ export class PokemonListarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPokemons();
+    this.countPokemonTypes();
   }
 }
