@@ -12,7 +12,6 @@ export class PokemonListarComponent implements OnInit {
   pokemons: PokemonDetailDto[] = [];
   selected: Boolean = false;
   selectedPokemon!: PokemonDetailDto;
-  contador!: number[];
   typeCount: { [key: string]: number } = {};
 
   constructor(private pokemonService: PokemonService) { }
@@ -31,7 +30,6 @@ export class PokemonListarComponent implements OnInit {
         }
       });
     });
-    this.contador = Object.values(this.typeCount);
   }
 
   onSelected(pokemon: PokemonDetailDto): void {
