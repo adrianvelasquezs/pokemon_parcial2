@@ -1,0 +1,17 @@
+<div>
+  <h1>Pokemones</h1>
+  <div *ngFor="let pokemon of pokemons">
+    <div class="card" style="width: 150px">
+      <div class="card-header" style="padding: 10px">
+        <h5>{{ pokemon.name }}</h5>
+        <div class="card-body" style="padding: 10px"></div>
+        <img
+          [src]="pokemon.sprites.front_default"
+          alt="{{ pokemon.name }}"
+          class="card-img-top"
+          style="width: 100px; height: 100px"
+        />
+      </div>
+    </div>
+  </div>
+</div>
