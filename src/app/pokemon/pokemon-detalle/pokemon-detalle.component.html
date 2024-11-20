@@ -15,7 +15,7 @@
     <p>Experiencia base: {{ pokeDetail.id }}</p>
     <p>Tipos:</p>
     <div *ngFor="let type of pokeDetail.types">
-      <a routerLink="['/type', type.type.name]">{{ type.type.name }}</a>
+      <a routerLink="/types/{{ type.type.name }}">{{ type.type.name }}</a>
     </div>
     <p>Habilidades:</p>
     <div *ngFor="let ability of pokeDetail.abilities">
